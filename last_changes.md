@@ -36,7 +36,11 @@ v3.6.x (2021-12-03)
 - Changed the default values of the QoS parameter reliability for all topics from BEST_EFFORT to RELIABLE to guarantee compatibility with all ROS2 tools
 - Fixed tab error in `zedm.yaml`
 - Fixed compatibility issue with ZED SDK older than v3.5 - Thanks @PhilippPolterauer
+<<<<<<< HEAD
 - Migration to ROS2 Foxy Fitzroy
+=======
+- Moved to branch `eloquent'
+>>>>>>> f0e17cb454b63d3a0a3468dcddabdeabc275c24a
 
 v3.5.x (2021-07-05)
 -------------------

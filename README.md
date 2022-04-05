@@ -4,6 +4,8 @@
 
 #### **Note:** if you are searching for a version of the ROS2 wrapper running on an Nvidia Jetson based on Ubuntu 18.04 that does not require recompiling ROS2 from source, please check out the `eloquent` branch, the official ROS2 version running on Ubuntu 18.04.
 
+#### **Note:** The branch `eloquent` is active and will be maintained and updated until Nvidia will release a Jetpack for the Jetson embedded boards based on Ubuntu 20.04. ROS2 Eloquent Elusor reached EOL in November 2020 and it will no more receive any update from ROS2 developers. You can get the latest version of the ZED ROS2 wrapper for the current stable version of ROS2 in the `master` branch.
+
 This package lets you use the ZED stereo cameras with ROS2. It provides access to the following data:
 
   - Left and right rectified/unrectified images
@@ -11,8 +13,13 @@ This package lets you use the ZED stereo cameras with ROS2. It provides access t
   - Colored 3D point cloud
   - Position and Mapping
   - Sensors data (not available with ZED)
+<<<<<<< HEAD
   - Detected objects (not available with ZED and ZED Mini)
   - Persons skeleton (not available with ZED and ZED Mini)
+=======
+  - Detected objects (Not available with ZED and ZED Mini)
+  - Persons skeleton (Not available with ZED and ZED Mini)
+>>>>>>> f0e17cb454b63d3a0a3468dcddabdeabc275c24a
 
 [More information](https://www.stereolabs.com/docs/ros2/getting-started/)
 
