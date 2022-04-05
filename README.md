@@ -86,6 +86,16 @@ $ source ~/.bashrc
 
 **Note:** If you are using a different console interface like zsh, you have to change the `source` command as follows: `echo source $(pwd)/install/local_setup.zsh >> ~/.zshrc` and `source ~/.zshrc`.
 
+
+#### Temporary fix for image-transport
+There is a bug with image transport for Foxy as indicated at ["this link"](https://github.com/stereolabs/zed-ros2-wrapper#image-transport-and-topic-subscriptions)
+
+
+The solution that worked for me is stated in the aforementioned link, but listed here again:
+1. Download image-transport v3.0.0
+2. drag the downloaded content into your ws/src
+3. colcon build --symlink-install 
+
 #### Update the local repository
 
 To update the repository to the latest release you must use the following command to retrieve the latest commits of `zed-ros2-wrapper` and of all the submodules:
