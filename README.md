@@ -63,7 +63,7 @@ To install the **zed_ros2_wrapper**, open a bash terminal, clone the package fro
 
 ```bash
 $ cd ~/ros2_ws/src/ #use your current ros2 workspace folder
-$ git clone  --recursive https://github.com/stereolabs/zed-ros2-wrapper.git
+$ git clone  --recursive https://github.com/wuxiaohua1011/zed-ros2-wrapper.git
 $ cd ..
 $ rosdep install --from-paths src --ignore-src -r -y
 $ colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release
