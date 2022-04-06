@@ -22,22 +22,11 @@ def generate_launch_description():
         "config",
         camera_model + ".rviz",
     )
-    print(config_rviz2)
 
     # Set LOG format
     os.environ[
         "RCUTILS_CONSOLE_OUTPUT_FORMAT"
     ] = "{time} [{name}] [{severity}] {message}"
-
-    # Rviz2 node
-    rviz2_node = Node(
-        package="rviz2",
-        namespace=camera_name,
-        executable="rviz2",
-        name=camera_name + "_rviz2",
-        output="screen",
-        arguments=[["-d"], [config_rviz2]],
-    )
 
     # Define LaunchDescription variable
     ld = LaunchDescription()
@@ -101,6 +90,4 @@ def generate_launch_description():
 
     # Add nodes to LaunchDescription
     ld.add_action(zed_wrapper_launch)
-    ld.add_action(rviz2_node)
-
     return ld
