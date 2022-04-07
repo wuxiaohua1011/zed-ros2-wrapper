@@ -16,13 +16,6 @@ def generate_launch_description():
     camera_model = "zed2i"
     camera_name = "zed2i"
 
-    # Rviz2 Configurations to be loaded by ZED Node
-    config_rviz2 = os.path.join(
-        get_package_share_directory("zed_wrapper"),
-        "config",
-        camera_model + ".rviz",
-    )
-
     # Set LOG format
     os.environ[
         "RCUTILS_CONSOLE_OUTPUT_FORMAT"
@@ -35,7 +28,7 @@ def generate_launch_description():
     node_name = "zed_node"  # Zed Node name
     publish_urdf = "true"  # Publish static frames from camera URDF
     # Robot base frame. Note: overrides the parameter `pos_tracking.base_frame` in `common.yaml`.
-    base_frame = "base_link"
+    base_frame = "camera_link"
     # Position X of the camera with respect to the base frame [m].
     cam_pos_x = "0.0"
     # Position Y of the camera with respect to the base frame [m].
