@@ -49,7 +49,9 @@ def generate_launch_description():
     )
 
     # Declare the launch arguments
-    declare_camera_zed_id = DeclareLaunchArgument("zed_id", description="Id of the zed")
+    declare_camera_zed_id = DeclareLaunchArgument(
+        "zed_id", description="Id of the zed", default_value="0"
+    )
 
     declare_camera_name_cmd = DeclareLaunchArgument(
         "camera_name",
