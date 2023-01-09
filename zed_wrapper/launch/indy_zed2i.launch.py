@@ -25,10 +25,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     # Configuration variables
-    node_name = "zed_node"  # Zed Node name
     publish_urdf = "true"  # Publish static frames from camera URDF
-    # Robot base frame. Note: overrides the parameter `pos_tracking.base_frame` in `common.yaml`.
-    base_frame = "camera_link"
     # Position X of the camera with respect to the base frame [m].
     cam_pos_x = "0.0"
     # Position Y of the camera with respect to the base frame [m].
@@ -64,23 +61,42 @@ def generate_launch_description():
             ]
         ),
         launch_arguments={
-            "camera_model": camera_model,
-            "camera_name": camera_name,
-            "node_name": node_name,
-            "config_common_path": config_common_path,
-            "config_camera_path": config_camera_path,
-            "publish_urdf": publish_urdf,
+            "camera_model": LaunchConfiguration("camera_model", default="zed2i"),
+            "camera_name": LaunchConfiguration("camera_name", default="camera_name"),
+            "node_name": LaunchConfiguration("node_name"),
+            "config_common_path": LaunchConfiguration("config_common_path"),
+            "config_camera_path": LaunchConfiguration("config_camera_path"),
+            "publish_urdf": LaunchConfiguration("publish_urdf"),
             "xacro_path": xacro_path,
-            "base_frame": base_frame,
-            "cam_pos_x": cam_pos_x,
-            "cam_pos_y": cam_pos_y,
-            "cam_pos_z": cam_pos_z,
-            "cam_roll": cam_roll,
-            "cam_pitch": cam_pitch,
-            "cam_yaw": cam_yaw,
+            "base_frame": LaunchConfiguration("base_frame", default="camera_link"),
+            "cam_pos_x": "0.0",
+            "cam_pos_y": "0.0",
+            "cam_pos_z": "0.0",
+            "cam_roll": "0.0",
+            "cam_pitch": "0.0",
+            "cam_yaw": "0.0",
         }.items(),
     )
+    config_common_path = DeclareLaunchArgument(
+        "config_common_path",
+    )
+    config_camera_path = DeclareLaunchArgument(
+        "config_camera_path",
+    )
+    node_name = DeclareLaunchArgument("node_name")
+    camera_model = DeclareLaunchArgument("camera_model", default_value="zed2i")
+    camera_name = DeclareLaunchArgument("camera_name")
+    base_frame = DeclareLaunchArgument("base_frame")
+    publish_urdf = DeclareLaunchArgument("publish_urdf")
 
     # Add nodes to LaunchDescription
+    ld.add_action(config_common_path)
+    ld.add_action(config_camera_path)
+    ld.add_action(node_name)
+    ld.add_action(camera_model)
+    ld.add_action(camera_name)
+    ld.add_action(base_frame)
+    ld.add_action(publish_urdf)
+
     ld.add_action(zed_wrapper_launch)
     return ld
